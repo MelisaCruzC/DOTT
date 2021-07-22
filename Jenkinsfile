@@ -10,12 +10,11 @@ pipeline {
 					sh "mvn -Dmaven.test.failure.ignore=true clean package"
 					sh 'echo "Building App"'
 				}
-				post{					
-					succes{
+				post{
+					success{
 						junit '**/target/surefire-reports/TEST-*.xml'
 						archiveArtifacts 'target/*.jar'
 					}
-
 				}
 			}
 
