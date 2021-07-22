@@ -7,7 +7,7 @@ pipeline {
 			stage('Build') {
 				steps {
 					git 'https://github.com/MelisaCruzC/DOTT.git'
-					sh "mvn -f cidr_convert_api/java/cidr-api/pom.xml"
+					sh "mvn compile cidr_convert_api/java/cidr-api/pom.xml"
 					sh 'echo "Building App"'
 				}
 				post{
