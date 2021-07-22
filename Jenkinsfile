@@ -1,9 +1,14 @@
 pipeline {
 	agent any
+		tools{
+		maven "Maven"
+		}
 		stages {
 			stage('Build') {
 				steps {
-					sh 'echo "Step One"'
+					git 'https://github.com/MelisaCruzC/DOTT.git'
+					sh "mvn -Dmaven.test.failure.ignore=true clean package"
+					sh 'echo "Building App"'
 				}
 			}
 
