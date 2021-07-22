@@ -7,14 +7,8 @@ pipeline {
 			stage('Build') {
 				steps {
 					git 'https://github.com/MelisaCruzC/DOTT.git'
-					sh "mvn -Dmaven.test.failure.ignore=true clean package"
+					sh "mvn -f cidr_convert_api/java/cidr-api/pom.xml"
 					sh 'echo "Building App"'
-				}
-				post{
-					success{
-						junit '**/target/surefire-reports/TEST-*.xml'
-						archiveArtifacts 'target/*.jar'
-					}
 				}
 			}
 
