@@ -1,27 +1,23 @@
 pipeline {
 	agent any
-		tools{
-		maven 'Maven'
-		}
 		stages {
-			stage('Build') {
+			stage('Clon') {
 				steps {
 					git 'https://github.com/MelisaCruzC/DOTT.git'
-					sh "mvn compile cidr_convert_api/java/cidr-api/pom.xml"
-					sh 'echo "Building App"'
-				}
-				post{
-					success{
-						junit '**/target/surefire-reports/TEST-*.xml'
-						archiveArtifacts 'target/*.jar'
-					}
 				}
 			}
 
 
 			stage('Analysis') {
 				steps {
-					sh 'echo "Step Two"'
+					def scannerHome = tool 'sonarqube';
+					withSonarQubeEnv('sonarqube'){
+						sh "$(scannerHome)/bin/sonar-scanner \
+						-D sonar.login=admin \
+						-D sonar.password=admin \
+						-D sonar.projectKey=ProjectDOTT \
+						-D sonar.host.url=http://18.118.2.29:9000/"
+					}
 				}
 			} 
 
