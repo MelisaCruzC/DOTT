@@ -5,8 +5,8 @@ node {
 	}
 
 	stage('Analysis') {
-		def scannerHome = tool 'sonarqube';
-		withSonarQubeEnv('sonarqube'){
+		def scannerHome = tool 'ScannerSQ';
+		withSonarQubeEnv('ServerSQ'){
 			sh "${scannerHome}/bin/sonar-scanner \
 			-D sonar.login=admin \
 			-D sonar.password=admin \
