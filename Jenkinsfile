@@ -11,7 +11,7 @@ node {
 
         stage('Analysis') {
                 def mvnHome = tool name: 'MavenSQ', type: 'maven'
-                withSonarQubeEnv('sonarqube'){
+                withSonarQubeEnv('ServerSQ'){
                         sh "${mvnHome}/bin/mvn sonar:sonar \
                         -D sonar.login=admin \
                         -D sonar.password=admin \
