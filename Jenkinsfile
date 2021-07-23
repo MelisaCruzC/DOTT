@@ -6,7 +6,6 @@ node {
 
 	stage ('Compile'){
 		def mvnHome = tool name: 'MavenSQ', type: 'maven'
-		sh "${mvnHome}/bin/mvn package"
 		sh "mvn -f cidr_convert_api/java/cidr-api/pom.xml clean install"
 	}
 
