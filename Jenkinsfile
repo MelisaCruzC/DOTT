@@ -1,7 +1,7 @@
 node {
 
 	stage('Clon') {
-		git 'https://github.com/MelisaCruzC/DOTT.git'
+		git credentialsId: '4e523118-02bb-453d-9877-045d3a449410', url: 'https://github.com/MelisaCruzC/DOTT.git'
 	}
 
 	stage('Analysis') {
