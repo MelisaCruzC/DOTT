@@ -11,7 +11,7 @@ node {
 			-D sonar.login=admin \
 			-D sonar.password=admin \
 			-D sonar.projectKey=ProjectDOTT \
-			-D sonar.host.url=http://18.118.2.29:9000/"
+			-D sonar.host.url=http://3.136.233.246:9000/"
 		}
 	} 
 
