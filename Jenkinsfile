@@ -12,7 +12,7 @@ node {
         stage('Analysis') {
                 def mvnHome = tool name: 'MavenSQ', type: 'maven'
                 withSonarQubeEnv('ServerSQ'){
-                        sh "${mvnHome}/bin/mvn sonar:sonar \
+                        sh "mvn -f cidr_convert_api/java/cidr-api/pom.xml sonar:sonar \
                         -D sonar.login=admin \
                         -D sonar.password=admin \
 			-Dsonar.login=e83ec5f9b38e527376ccc2485f508cf42d59439e \
