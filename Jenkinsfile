@@ -18,7 +18,7 @@ node {
 			-Dsonar.login=e83ec5f9b38e527376ccc2485f508cf42d59439e \
 			-D sonar.verbose=true \
                         -D sonar.projectKey=ProjectDOTT \
-                        -D sonar.host.url=http:/http://3.136.233.246:9000/"
+                        -D sonar.host.url=http://3.136.233.246:9000/"
                 }
         } 
 
